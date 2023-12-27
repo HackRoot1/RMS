@@ -1,0 +1,276 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display: flex;
+    background-color: #f0f0f0;
+}
+
+
+
+/* ==================== sidebar ======================= */
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 250px;
+    background-color: rgb(14, 9, 64);
+    color: white;
+    position: fixed;
+}
+
+#sidebar > div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+}
+
+#sidebar > div >div{
+    margin: 20px 0;
+}
+
+#sidebar div.title{
+    margin-top: 15px;
+    font-size: 35px;
+    text-align: center;
+}
+
+#sidebar div.links{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#sidebar div.links a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    /* margin: 10px 0; */
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+#sidebar div.links a:hover{
+    color: rgb(14, 9, 64);
+    background-color: white;
+}
+
+#sidebar div.signout a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    /* margin: 10px 0; */
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#logout-btn input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+#logout-btn input:hover{
+    color: rgb(14, 9, 64);
+}
+#sidebar div.signout a:hover{
+    color: rgb(14, 9, 64);
+    background-color: white;
+}
+
+/* ==================== end =========================== */
+
+
+
+
+/* ===================== main container ========================= */
+#main-container{
+    width: calc(100vw - 255px);
+    min-height: 100vh;
+    margin-left: 250px;
+    box-sizing: border-box;
+}
+
+
+            /* =================== top navigation bar ==================== */
+            #main-container nav{
+                height: 70px;
+                width: 100%;
+                /* background-color: rgb(255, 255, 255); */
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 50px;
+                position: sticky;
+                top: 0;
+                background-color: #b5b5b598;
+                backdrop-filter: blur(5px);
+            }
+
+            #main-container div.title{
+                font-size: 30px;
+                font-weight: 400;
+            }
+
+            #main-container div.search input{
+                height: 40px;
+                width: 200px;
+                border-radius: 50px;
+                padding: 10px 20px;
+                font-size: 20px;
+                outline: none;
+                border: none;
+                box-shadow: 1px 1px 5px #f0f0f0;
+            }
+
+
+            /* ====================== end ================== */
+
+
+        
+            /* ================== filter section ================ */
+
+
+            #filter-section{
+                padding: 20px 50px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 0 20px;
+                overflow-x: auto;
+            }
+
+
+            /* scroll bar css */
+
+                /* width */
+                ::-webkit-scrollbar {
+                    width: 5px;
+                    height: 3px;
+                }
+                
+                /* Track */
+                ::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                }
+                
+                /* Handle */
+                ::-webkit-scrollbar-thumb {
+                    background: #888;
+                }
+                
+                /* Handle on hover */
+                ::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
+            /* end */
+
+
+            #filter-section > div{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                font-size: 20px;
+                align-items: center;
+                height: 120px;
+                min-width: 100px;
+                background-color: white;
+                padding: 10px;
+                border-radius: 10px;
+                word-break: break-all;
+                overflow-wrap: break-word;
+            }
+
+            #filter-section > div i{
+                font-size: 35px;
+            }
+
+            #filter-section > div.active{
+                background-color: blue;
+            }
+            /* ================= end ================ */
+
+
+
+
+
+            /* =========== popular orders ============== */
+
+            #popular-orders{
+                margin: 20px 0;
+                padding: 10px 50px;
+            }
+
+            #popular-orders div.title{
+                font-size: 35px;
+            }
+
+            #popular-orders div.boxes{
+                display: flex;
+                flex-direction: row;
+                margin-top: 20px;
+                flex-wrap: wrap;
+                gap: 20px 20px;
+            }
+
+            #popular-orders div.box{
+                height: 300px;
+                width: 250px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #popular-orders div.box .img{
+                width: 100%;
+                /* background-color: aqua; */
+            }
+            #popular-orders div.box img{
+                height: 200px;
+                width: 100%;
+                object-fit: cover;
+            }
+            
+            #popular-orders div.box .name{
+                width: 100%;
+                height: 30px;
+                text-align: center;
+                font-size: 20px;
+                background-color: bisque;
+            }
+            
+            #popular-orders div.box .price{
+                width: 100%;
+                height: 30px;
+                text-align: center;
+                font-size: 20px;
+                background-color: bisque;
+            }
+
+            #popular-orders div.box .buy{
+                width: 100%;
+                height: 40px;
+                text-align: center;
+                font-size: 20px;
+                background-color: bisque;
+            }
+
+
+
+
+
+            /* ============= end ============== */
+/* ================== end ================== */

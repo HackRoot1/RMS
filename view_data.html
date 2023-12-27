@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- ========= icons link ========== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- =========== css link ========== -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+
+    <!-- =========== google fonts ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+
+        #food{
+            display: flex;
+            flex-direction: row;
+            column-gap: 50px;
+            margin: 50px;
+        }
+
+        #food-info{
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            height: -webkit-fill-available;
+            width: 60%;
+        }
+
+
+        #food-info .img{
+            background-color: transparent;
+            max-height: 300px;
+            max-width: 300px;
+            align-self: center;
+            /* object-fit: cover; */
+        }
+
+        #food-info .img img{
+            width: 100%;
+            /* height:max-content; */
+            /* object-fit: cover; */
+        }
+
+
+        #food-info .food-details{
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        #food-info .title{
+            font-size: 20px;
+        }
+
+        #food-info .info{
+            font-size: 15px;
+            margin: 15px 0;
+        }
+
+        #food-info .price-details{
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+        
+        #food-info .price-details > div{
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+        }
+
+        #food-info .price-details .discount{
+            background-color: yellowgreen;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        #food-info .buy button{
+            height: 40px;
+            width: 100px;
+            border-radius: 50px;
+            background-color: rgb(23, 15, 109);
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+        /* ============= sidebar similar items ============== */
+
+
+        
+        #similar-items{
+            background-color: antiquewhite;
+            width: 40%;
+            /* min-height: 300px; */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+        }
+
+        
+        #similar-items .results{
+            background-color: aqua;
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            min-height: auto;
+        }
+
+        #similar-items .results > div{
+            width: 200px;
+            padding: 10px;
+        }
+
+        #similar-items .results > div.info{
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+
+        #similar-items .results > div.info .name{
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        #similar-items .results > div.info .data{
+            text-align: justify;
+        }
+
+
+        #similar-items .results > div.info .price{
+            font-size: 20px;
+        }
+
+
+        #similar-items .results img{
+            width: 100%;
+        }
+        /*  ================ end =========== */
+    </style>
+
+    
+</head>
+<body>
+        <!--  =============== sidebar =============  -->
+    <section id = "sidebar">    
+        <div>
+            <div class = "title">
+                Bistro
+            </div>
+
+            <div class = "links">
+                <a href="#">
+                    <i class = "uil uil-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#">
+                    <i class = "uil uil-file-blank"></i>
+                    <span>Product</span>
+                </a>
+                <a href="#">
+                    <i class = "uil uil-puzzle-piece"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#">
+                    <i class = "uil uil-users-alt"></i>
+                    <span>Customer</span>
+                </a>
+                <a href="#">
+                    <i class = "uil uil-usd-square"></i>
+                    <span>Order</span>
+                </a>
+            </div>
+        </div>
+
+
+        <div class = "signout">
+            <a href="">
+                <i class="uil uil-signout"></i>
+                <span>
+                    Logout
+                </span>
+            </a>
+            <a href="">
+                <i class = "uil uil-setting"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- =============== main container =============== -->
+    <main id = "main-container">
+        <nav>
+            <div class="title">Good Morning Darius</div>
+            <div class="search">
+                <input type="search" placeholder="Search">
+            </div>
+        </nav>
+
+        <section id="food">
+            <section id = "food-info">
+                <div class="img">
+                    <img src="assets/images/apple.png" alt="">
+                </div>
+
+                <div class = "food-details">
+                    <div class="title">
+                        Pizza
+                    </div>
+                    <div class="info">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Odio iure earum maxime quibusdam. Dolor incidunt dolores quas totam perferendis dolorum.
+                    </div>
+                    <div class="price-details">
+                        <div>
+                            <div class="price">
+                                199 Rs.
+                            </div>
+                            <div class="discount">
+                                20% Discount
+                            </div>
+                        </div>
+                        <div>
+                            <div class="buy">
+                                <button>Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+            
+            <section id = "similar-items">
+                <div class="title">Similar Items</div>
+                
+                <div class = "results">
+                    <div>
+                        <img src="./assets/images/apple.png" alt="" />
+                    </div>
+
+                    <div class = "info">
+                        <div class="name">Pizza</div>
+                        <div class="data">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quae.</div>
+                        <div class="price">199 Rs.</div>
+                    </div>
+                </div>
+                <div class = "results">
+                    <div>
+                        <img src="./assets/images/apple.png" alt="" />
+                    </div>
+
+                    <div class = "info">
+                        <div class="name">Pizza</div>
+                        <div class="data">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quae.</div>
+                        <div class="price">199 Rs.</div>
+                    </div>
+                </div>
+                <div class = "results">
+                    <div>
+                        <img src="./assets/images/apple.png" alt="" />
+                    </div>
+
+                    <div class = "info">
+                        <div class="name">Pizza</div>
+                        <div class="data">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quae.</div>
+                        <div class="price">199 Rs.</div>
+                    </div>
+                </div>
+                <div class = "results">
+                    <div>
+                        <img src="./assets/images/apple.png" alt="" />
+                    </div>
+
+                    <div class = "info">
+                        <div class="name">Pizza</div>
+                        <div class="data">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quae.</div>
+                        <div class="price">199 Rs.</div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+    </main>
+</body>
+</html>

@@ -1,2 +1,2 @@
-# RMS
-This is a restaurant management system project.
+# RMS_project
+This is a restaurant management project.
