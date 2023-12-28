@@ -116,7 +116,7 @@
 
 #similar-items .results{
     background-color: #f0f0f0;
-    height: 150px;
+    min-height: 150px;
     display: flex;
     flex-direction: row;
     min-height: auto;
