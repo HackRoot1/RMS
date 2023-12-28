@@ -170,12 +170,17 @@
 
             });
 
+
+            // hiding filter box
             $(".filter-box").hide();
+
+            // showing filter box
             $(document).on("click", "#filter-category", function(){
                 $(".filter-box").toggle();
             });
 
 
+            // function for getting result of filtered data
             function get_filtered_data(){
                 $("#filter-lists").empty();
                 var valueObj = {};  
@@ -213,7 +218,6 @@
                 $(this).toggleClass("active");
                 var id = $(this).data("categoryitem");
                 
-               
                 get_filtered_data();
                 
 

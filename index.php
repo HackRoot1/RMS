@@ -47,20 +47,6 @@
 
 
         <!-- ========== filter section ========= -->
-        <section id = "filter-section">
-            <?php 
-                while($category = mysqli_fetch_assoc($category_list)){
-            ?>
-                <div class = "category">
-                    <span>
-                        <i class="uil uil-pizza-slice"></i>
-                    </span>
-                    <span class = "category-name"><?php echo $category['category']; ?></span>
-                </div>
-            <?php 
-                }
-            ?>
-        </section>
 
 
 
@@ -77,7 +63,7 @@
                         Sorts
                     </span>
                 </div>
-                <div>
+                <div id = "filter-btn">
                     <i class="uil uil-filter"></i>
                     <span>
                         Filters
@@ -86,9 +72,23 @@
             </div>
 
         </section>
+        <section id = "filter-sort-section" class = "filter-list">
+                <div></div>
+                <div class = "sorting-lists">
+                    <?php 
+                        while($category = mysqli_fetch_assoc($category_list)){
+                    ?>
+                        <div class = "items">
+                            <?php echo $category['category']; ?>
+                        </div>
+                    <?php 
+                        }
+                    ?>
+                </div>
+        </section>
 
 
-
+        <hr>
 
         <!-- ============ end filters ============= -->
 
@@ -140,11 +140,77 @@
         $(document).ready(function(){
 
 
+
+            $("#filter-sort-section.filter-list").hide();
+            
+            $("#filter-btn").on("click", function(){
+                $("#filter-sort-section.filter-list").toggle();
+            });
+
             // filter section for resulting....
             $(".category").on("click", function(){
                 var categoryItem = $(this).toggleClass("active");
 
-                console.log(categoryValue);
+                // console.log(categoryValue);
+            });
+
+
+            
+            function get_filtered_data(){
+                // $("#filter-lists").empty();
+                var valueObj = {};  
+                $("#filter-sort-section .sorting-lists .items.active").each(function (index, element) {
+                    var value = $(element).text();
+                    valueObj[value] = value; // Assuming you want to store the text content
+                    
+                    // $("#filter-lists").append(`
+                    //                         <div class="applied-filter">
+                    //                             <span>
+                    //                                 `+ value +`
+                    //                             </span>
+                    //                             <i id ="cancel-filter" class = "uil uil-times"></i>
+                    //                         </div> 
+                    //                         `);
+                });
+
+                $.ajax({
+                    url : "filterdata2.php",
+                    method : "POST",
+                    data : { data : JSON.stringify(valueObj)},
+                    success : function(data){
+                        if(data){
+                            $(".boxes").html(data);
+                            
+                        }else{
+                            alert("error");
+                        }
+                    }
+                });
+            }
+
+            // get_filtered_data();
+
+
+            $(document).on("click", "#filter-sort-section .sorting-lists .items", function(){
+                $(this).toggleClass("active");
+                var id = $(this).data("categoryitem");
+                
+                get_filtered_data();
+                
+            });
+
+            $(document).on("click","#cancel-filter", function(){
+                var filterValue = $(this).siblings(".applied-filter span").text();
+                $(this).parent().remove();
+                
+                // $(".filter-box .options .item").removeClass("active");
+                $(".filter-box .options .item.active").each(function (index, element) {
+                    if(filterValue.trim() == $(element).text()){
+                        var value = $(element).removeClass("active");
+                    }
+                });
+                get_filtered_data();
+
             });
         });
 
