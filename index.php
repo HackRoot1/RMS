@@ -1,10 +1,5 @@
 <?php 
 
-    // session_start();
-    // if(!isset($_SESSION['user'])){
-    //     header("Location: login.php");
-    // }
-
     if(isset($_POST['logout'])){
         session_unset();
         session_destroy();
@@ -12,15 +7,6 @@
     }
 
     include("header.php");
-    
-    // include("config.php");
-    // $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
-    // $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
-
-    // $user_info_data = mysqli_fetch_assoc($user_info);
-    // echo "<pre>";
-    // print_r($user_info_data);
-    // echo "</pre>";
 
 
     // fetching all menu items list 
@@ -74,6 +60,31 @@
             <?php 
                 }
             ?>
+        </section>
+
+
+
+
+        <section id = "filter-sort-section">
+            <div class="title">
+                Filters
+            </div>
+
+            <div class="buttons">
+                <div>
+                    <i class="uil uil-sort"></i>
+                    <span>
+                        Sorts
+                    </span>
+                </div>
+                <div>
+                    <i class="uil uil-filter"></i>
+                    <span>
+                        Filters
+                    </span>
+                </div>
+            </div>
+
         </section>
 
 
