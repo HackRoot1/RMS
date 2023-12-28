@@ -77,6 +77,8 @@
         </section>
 
 
+
+
         <!-- ============ end filters ============= -->
 
 
@@ -96,9 +98,13 @@
                         <div class="img">
                             <img src="./assets/images/<?php echo $items['image']; ?>" alt="">
                         </div>
-                        <div class="name"><?php echo $items['name'] ; ?></div>
-                        <div class="price"><?php echo $items['price'] ; ?> Rs.</div>
-                        <a class="buy" href="view_data.php?id=<?php echo $items['id']; ?>">Buy Now</a>
+                        <div class = "box-info">
+                            <div class="name"><?php echo $items['name'] ; ?></div>
+                            <div class="price"><?php echo $items['price'] ; ?> Rs.</div>
+                            <div class="buy" >
+                                <a href="view_data.php?id=<?php echo $items['id']; ?>">Buy Now</a>
+                            </div>
+                        </div>
                     </div>
 
                 <?php 

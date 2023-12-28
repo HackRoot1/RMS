@@ -38,6 +38,22 @@
                         </span>
                     </a>
                 </div>
+
+                <div>
+
+                </div>
+                <div id = "filter-lists">
+                    <!-- 
+                    <div class="applied-filter">
+                        <span>
+                            Category
+                        </span>
+                        <i id ="cancel-filter" class = "uil uil-times"></i>
+                    </div> 
+                -->
+                </div>
+
+                
                 <div id = "filter-category" class = "filters">
                         <i class="uil uil-filter"></i>
                         <span>
@@ -160,14 +176,21 @@
             });
 
 
-            $(document).on("click", ".filter-box .options .item", function(){
-                $(this).toggleClass("active");
-                var id = $(this).data("categoryitem");
-
+            function get_filtered_data(){
+                $("#filter-lists").empty();
                 var valueObj = {};  
                 $(".filter-box .options .item.active").each(function (index, element) {
                     var value = $(element).text();
                     valueObj[value] = value; // Assuming you want to store the text content
+                    
+                    $("#filter-lists").append(`
+                                            <div class="applied-filter">
+                                                <span>
+                                                    `+ value +`
+                                                </span>
+                                                <i id ="cancel-filter" class = "uil uil-times"></i>
+                                            </div> 
+                                            `);
                 });
 
                 $.ajax({
@@ -177,11 +200,38 @@
                     success : function(data){
                         if(data){
                             $(".menu-table").html(data);
+                            
                         }else{
                             alert("error");
                         }
                     }
                 });
+            }
+
+            
+            $(document).on("click", ".filter-box .options .item", function(){
+                $(this).toggleClass("active");
+                var id = $(this).data("categoryitem");
+                
+               
+                get_filtered_data();
+                
+
+            });
+
+
+            $(document).on("click","#cancel-filter", function(){
+                var filterValue = $(this).siblings(".applied-filter span").text();
+                $(this).parent().remove();
+                
+                // $(".filter-box .options .item").removeClass("active");
+                $(".filter-box .options .item.active").each(function (index, element) {
+                    if(filterValue.trim() == $(element).text()){
+                        var value = $(element).removeClass("active");
+                    }
+                });
+                get_filtered_data();
+
             });
         });
     </script>

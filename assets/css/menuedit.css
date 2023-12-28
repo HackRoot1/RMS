@@ -1,3 +1,17 @@
+
+
+#filter-lists{
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px
+}
+
+#filter-lists div{
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
 #add-menu{
     display: flex;
     /* background-color: antiquewhite; */
