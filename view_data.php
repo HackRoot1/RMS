@@ -1,14 +1,15 @@
 <?php 
-    session_start();
-    if(!isset($_SESSION['user'])){
-        header("Location: login.php");
-    }
+    // session_start();
+    // if(!isset($_SESSION['user'])){
+    //     header("Location: login.php");
+    // }
 
     if(isset($_POST['logout'])){
         session_unset();
         session_destroy();
         header("Location: login.php");
     }
+    include("header.php");
 
 
     include("config.php");
@@ -28,7 +29,6 @@
     $user_info_data = mysqli_fetch_assoc($user_info);
 
 
-    include("header.php");
 ?>
 
 
@@ -93,7 +93,7 @@
                                 <?php echo $data['price']; ?> Rs.
                             </div>
 
-                            <div>
+                            <div class = "view-btn">
                                 <a href="view_data.php?id=<?php echo $data['id']; ?>">
                                     View
                                 </a>

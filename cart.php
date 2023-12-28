@@ -1,9 +1,9 @@
 <?php 
 
-    session_start();
-    if(!isset($_SESSION['user'])){
-        header("Location: login.php");
-    }
+    // session_start();
+    // if(!isset($_SESSION['user'])){
+    //     header("Location: login.php");
+    // }
 
     if(isset($_POST['logout'])){
         session_unset();
@@ -11,12 +11,14 @@
         header("Location: login.php");
     }
 
-    
-    include("config.php");
-    $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
-    $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
+    include("header.php");
 
-    $user_info_data = mysqli_fetch_assoc($user_info);
+    
+    // include("config.php");
+    // $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
+    // $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
+
+    // $user_info_data = mysqli_fetch_assoc($user_info);
     
     if(isset($_GET['id'])){
         $id = $_GET['id'];
@@ -37,7 +39,6 @@
     
 
 
-    include("header.php");
     
 ?>
 

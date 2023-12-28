@@ -1,5 +1,7 @@
 <?php 
 
+
+
     include("header.php");
 
     include("config.php");
@@ -18,18 +20,42 @@
 
     $menu_items = select_menu_items($conn);
 
+
+    $category_query = "SELECT DISTINCT category FROM menu";
+    $category_query_data = mysqli_query($conn, $category_query);
+
 ?>
 
     <section id = "add-menu">
         <div class="menu">
 
             <div class = "title">
-                <a href=""> 
-                    <i class="uil uil-plus-circle"></i>
-                    <span>
-                        Add Menu
-                    </span>
-                </a>
+                <div>
+                    <a href=""> 
+                        <i class="uil uil-plus-circle"></i>
+                        <span>
+                            Add Menu
+                        </span>
+                    </a>
+                </div>
+                <div id = "filter-category" class = "filters">
+                        <i class="uil uil-filter"></i>
+                        <span>
+                            Filters
+                        </span>
+
+                        <div class="filter-box">
+                            <div class="options">
+                                <?php 
+                                    while($categories = mysqli_fetch_assoc($category_query_data)){
+                                ?>
+                                    <div data-categoryitem="<?php echo $categories['category']; ?>" class = "item"><?php echo $categories['category']; ?></div>
+                                <?php 
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                </div>
 
             </div>
 
@@ -126,6 +152,36 @@
                     });
                 }
 
+            });
+
+            $(".filter-box").hide();
+            $(document).on("click", "#filter-category", function(){
+                $(".filter-box").toggle();
+            });
+
+
+            $(document).on("click", ".filter-box .options .item", function(){
+                $(this).toggleClass("active");
+                var id = $(this).data("categoryitem");
+
+                var valueObj = {};  
+                $(".filter-box .options .item.active").each(function (index, element) {
+                    var value = $(element).text();
+                    valueObj[value] = value; // Assuming you want to store the text content
+                });
+
+                $.ajax({
+                    url : "filterdata.php",
+                    method : "POST",
+                    data : { data : JSON.stringify(valueObj)},
+                    success : function(data){
+                        if(data){
+                            $(".menu-table").html(data);
+                        }else{
+                            alert("error");
+                        }
+                    }
+                });
             });
         });
     </script>

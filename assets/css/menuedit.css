@@ -15,17 +15,57 @@
 }
 
 #add-menu .menu .title{
-    display: inline-block;
+    display: flex;
     font-size: 20px;
     margin: 10px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 #add-menu .menu .title a{
     text-decoration: none;
     background-color: rgb(14, 9, 64);
     padding: 10px;
     color: white;
-    border-radius: 50px;
+    border-radius: 10px;
+}
+
+#add-menu .menu .title .filters{
+    text-decoration: none;
+    background-color: rgb(14, 9, 64);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  #add-menu .menu .title .filters .filter-box{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -5px;
+    background-color: rgb(14, 9, 64);
+    min-width: 100px;
+    height: 200px;
+    overflow: scroll;
+    text-align: start;
+}
+  
+  #add-menu .menu .title .filters .filter-box .options{
+    padding: 5px;
+}
+
+#add-menu .menu .title .filters .filter-box .options div:hover{
+    /* padding: 5px; */
+    background-color: white;
+    color: rgb(14, 9, 64);
+    cursor: pointer;
+}
+
+#add-menu .menu .title .filters .filter-box .options div.active{
+    /* padding: 5px; */
+    background-color: white;
+    color: rgb(14, 9, 64);
 }
 
 #add-menu .menu-table{
@@ -33,33 +73,46 @@
     margin: 25px 0;
 
 }
+/* Reset some default styles */
+#add-menu .menu-table table {
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+  }
 
-#add-menu .menu-table table{
+
+  /* Style the table */
+  #add-menu .menu-table table {
     width: 100%;
-    height: auto;
-    border: 1px solid black;
-    
-}
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-#add-menu .menu-table table th{
-    font-size: 20px;
-}
+  /* Style table header */
+  #add-menu .menu-table th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
 
-#add-menu .menu-table table tr{
-    height: 50px;
-}
+  #add-menu .menu-table th {
+    background-color: #f2f2f2;
+  }
 
-#add-menu .menu-table table td, #add-menu .menu-table table th{
-    padding: 10px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    align-items: center;
-    border: 1px solid black;
-}
+  /* Style alternating rows */
+  #add-menu .menu-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* Hover effect on rows */
+  #add-menu .menu-table tr:hover {
+    background-color: #e5e5e5;
+  }
+
 #add-menu .menu-table table tr td img{
-    width: 100px;
-    /* height: 50px; */
+    width: 50px;
+    height: 50px;
 }
 
 #add-menu .menu-table table tr td button{

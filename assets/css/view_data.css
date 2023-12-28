@@ -79,6 +79,21 @@
 }
 
 
+#food-info .buy a{
+    height: 40px;
+    width: 100px;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: rgb(23, 15, 109);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
 
 
 
@@ -134,6 +149,21 @@
     font-size: 20px;
     display: flex;
     column-gap: 15px;
+}
+
+
+#similar-items .results > div.info .price .view-btn a{
+    height: 40px;
+    width: 100px;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: rgb(23, 15, 109);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 

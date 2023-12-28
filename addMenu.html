@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-}
-
-include("config.php");
-$user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
-$user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
-
-$user_info_data = mysqli_fetch_assoc($user_info);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +10,6 @@ $user_info_data = mysqli_fetch_assoc($user_info);
 
     <!-- =========== css link ========== -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/cart.css">
-    <link rel="stylesheet" href="./assets/css/view_data.css">
-    <link rel="stylesheet" href="./assets/css/menuedit.css">
 
 
     <!-- =========== google fonts ========== -->
@@ -32,12 +17,53 @@ $user_info_data = mysqli_fetch_assoc($user_info);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
 
+ 
+    <style>
+        #view-items-table{
+            margin: 50px;
+            background-color: aqua;
+        }
+
+    /* Reset some default styles */
+    body, h1, h2, p, table {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Style the table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style table header */
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    /* Style alternating rows */
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Hover effect on rows */
+    tr:hover {
+      background-color: #e5e5e5;
+    }
+  </style>
     
-    <!-- ============ jquery cdn link ============ -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-
-  
 </head>
 <body>
         <!--  =============== sidebar =============  -->
@@ -48,23 +74,23 @@ $user_info_data = mysqli_fetch_assoc($user_info);
             </div>
 
             <div class = "links">
-                <a href="index.php">
+                <a href="#">
                     <i class = "uil uil-home"></i>
                     <span>Home</span>
                 </a>
-                <a href="addMenu.php">
+                <a href="#">
                     <i class = "uil uil-file-blank"></i>
-                    <span>View Menu</span>
+                    <span>Product</span>
                 </a>
-                <!-- <a href="#">
+                <a href="#">
                     <i class = "uil uil-puzzle-piece"></i>
                     <span>Overview</span>
-                </a> -->
-                <a href="customers.php">
+                </a>
+                <a href="#">
                     <i class = "uil uil-users-alt"></i>
                     <span>Customer</span>
                 </a>
-                <a href="cart.php">
+                <a href="#">
                     <i class = "uil uil-usd-square"></i>
                     <span>Order</span>
                 </a>
@@ -74,13 +100,10 @@ $user_info_data = mysqli_fetch_assoc($user_info);
 
         <div class = "signout">
             <a href="">
-                <form action="" method="post">
-                    <i class="uil uil-signout"></i>
-                    <span id = "logout-btn">
-                        <input type="submit" value="Logout" name = "logout">
-                        <!-- Logout -->
-                    </span>
-                </form>
+                <i class="uil uil-signout"></i>
+                <span>
+                    Logout
+                </span>
             </a>
             <a href="">
                 <i class = "uil uil-setting"></i>
@@ -93,8 +116,34 @@ $user_info_data = mysqli_fetch_assoc($user_info);
     <!-- =============== main container =============== -->
     <main id = "main-container">
         <nav>
-            <div class="title">Good Morning <?php echo $user_info_data['username']; ?></div>
+            <div class="title">Good Morning Darius</div>
             <div class="search">
                 <input type="search" placeholder="Search">
             </div>
         </nav>
+
+
+        <section id = "view-items-table">
+            <table>
+                <!-- <thead> -->
+                    <tr>
+                        <th>Name</th>
+                        <th>Name</th>
+                        <th>Name</th>
+                        <th>Name</th>
+                    </tr>
+                <!-- </thead> -->
+
+                <!-- <tbody> -->
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                <!-- </tbody> -->
+            </table>
+        </section>
+    </main>
+</body>
+</html>

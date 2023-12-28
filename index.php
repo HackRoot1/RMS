@@ -1,9 +1,9 @@
 <?php 
 
-    session_start();
-    if(!isset($_SESSION['user'])){
-        header("Location: login.php");
-    }
+    // session_start();
+    // if(!isset($_SESSION['user'])){
+    //     header("Location: login.php");
+    // }
 
     if(isset($_POST['logout'])){
         session_unset();
@@ -11,12 +11,13 @@
         header("Location: login.php");
     }
 
+    include("header.php");
     
-    include("config.php");
-    $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
-    $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
+    // include("config.php");
+    // $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
+    // $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
 
-    $user_info_data = mysqli_fetch_assoc($user_info);
+    // $user_info_data = mysqli_fetch_assoc($user_info);
     // echo "<pre>";
     // print_r($user_info_data);
     // echo "</pre>";
@@ -56,7 +57,6 @@
 
 
 
-    include("header.php");
 ?>
 
 
@@ -65,7 +65,6 @@
             <?php 
                 while($category = mysqli_fetch_assoc($category_list)){
             ?>
-
                 <div class = "category">
                     <span>
                         <i class="uil uil-pizza-slice"></i>
