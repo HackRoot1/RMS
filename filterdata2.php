@@ -1,29 +1,26 @@
 <?php 
 
 
-include("config.php");
+    include("config.php");
 
-    $jsonData = json_decode($_POST["data"], true);
-    
+    $filter_value = json_decode($_POST["data"], true);
 
-    function select_menu_items($conn, $filter_category = null, $filter_value = null){
-        $menu_items_query = "SELECT * FROM `menu`";
-    
-        if (is_array($filter_value) && count($filter_value) > 0) {
-            
-            $filter_value = " ' " . implode( "', '", $filter_value) . " ' ";
-            $menu_items_query = "SELECT * FROM `menu` WHERE `{$filter_category}` IN ({$filter_value})";   
-            
-        }
+    $menu_items_query = "SELECT * FROM `menu`";
+
+    if (is_array($filter_value) && count($filter_value) > 0) {
         
-        return mysqli_query($conn, $menu_items_query);
+        $filter_value = " ' " . implode( "', '", $filter_value) . " ' ";
+        
+        $menu_items_query = "SELECT * FROM menu WHERE category IN ({$filter_value});";   
+
+        echo $menu_items_query;
+        exit();
     }
     
-    $menu_items = select_menu_items($conn, 'category', $jsonData);
+    $menu_items =  mysqli_query($conn, $menu_items_query);
+    
 
 
-    // print_r($menu_items);
-    // exit();
 ?>
 
 

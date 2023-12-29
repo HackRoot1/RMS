@@ -157,9 +157,9 @@
 
             
             function get_filtered_data(){
-                // $("#filter-lists").empty();
+                $("#filter-sort-section .filters").empty();
                 var valueObj = {};  
-                $("#filter-sort-section .sorting-lists .items.active").each(function (index, element) {
+                $(".filter-list .sorting-lists .items.active").each(function (index, element) {
                     var value = $(element).text();
                     valueObj[value] = value; // Assuming you want to store the text content
                     
@@ -198,19 +198,19 @@
                 
             });
 
-            $(document).on("click","#cancel-filter", function(){
-                var filterValue = $(this).siblings(".applied-filter span").text();
-                $(this).parent().remove();
+            // $(document).on("click","#cancel-filter", function(){
+            //     var filterValue = $(this).siblings(".applied-filter span").text();
+            //     $(this).parent().remove();
                 
-                // $(".filter-box .options .item").removeClass("active");
-                $(".filter-box .options .item.active").each(function (index, element) {
-                    if(filterValue.trim() == $(element).text()){
-                        var value = $(element).removeClass("active");
-                    }
-                });
-                get_filtered_data();
+            //     // $(".filter-box .options .item").removeClass("active");
+            //     $(".filter-box .options .item.active").each(function (index, element) {
+            //         if(filterValue.trim() == $(element).text()){
+            //             var value = $(element).removeClass("active");
+            //         }
+            //     });
+            //     get_filtered_data();
 
-            });
+            // });
         });
 
     </script>

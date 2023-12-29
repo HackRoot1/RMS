@@ -116,9 +116,9 @@
                                 <?php echo $data['quantity']; ?>
                             </td>
                             <td>
-                                <button id = "editItem" data-edititem="<?php echo $data['id']; ?>">
+                                <a href="add_item.php?id=<?php echo $data['id']; ?>" id = "editItem">
                                     <i class="uil uil-edit"></i>
-                                </button>
+                                </a>
                                 <button id = "deleteItem" data-deleteitem="<?php echo $data['id']; ?>">
                                     <i class="uil uil-trash-alt"></i>
                                 </button>
@@ -139,11 +139,7 @@
 
     <script>
         $(document).ready(function(){
-            // for editing items information
-            $(document).on("click","#editItem", function(){
-                var id = $(this).data("edititem");
-                alert(id);
-            });
+            
             
             
             
