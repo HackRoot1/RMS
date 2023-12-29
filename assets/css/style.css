@@ -115,6 +115,7 @@ body{
                 top: 0;
                 background-color: #b5b5b598;
                 backdrop-filter: blur(5px);
+                z-index: 20;
             }
 
             #main-container div.title{
@@ -199,6 +200,67 @@ body{
                 background-color: blue;
             }
 
+
+            #filter-sort-section{
+                margin: 30px 50px;
+                /* padding-bottom: 0; */
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+            }
+
+
+            #filter-sort-section .title{
+                font-size: 25px;
+            }
+
+            #filter-sort-section .buttons{
+                display: flex;
+                flex-direction: row;
+                column-gap: 20px;
+                /* row-gap: 20px; */
+                /* background-color: #888; */
+            }
+
+            #filter-sort-section .buttons div{
+                background-color: rgb(23, 15, 109);
+                padding: 10px;
+                border-radius: 10px;
+                color: white;
+                cursor: pointer;
+            }
+
+            #filter-sort-section .sorting-lists{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                width: 180px;
+                height: 180px;
+                overflow: auto;
+                background-color: rgb(23, 15, 109);
+                display: flex;
+                flex-direction: column;
+            }
+            
+            #filter-sort-section .sorting-lists .items{
+                color: white;
+                height: 40px;
+                width: 100%;
+                padding: 10px;
+                cursor: pointer;
+            }
+            
+            #filter-sort-section .sorting-lists .items:hover{
+                background-color: white;   
+                color: rgb(23, 15, 109);
+            }
+            
+            #filter-sort-section .sorting-lists .items.active{
+                background-color: white;   
+                color: rgb(23, 15, 109);
+            }
 
             /* ================= end ================ */
 

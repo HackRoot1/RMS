@@ -1,10 +1,5 @@
 <?php 
 
-    // session_start();
-    // if(!isset($_SESSION['user'])){
-    //     header("Location: login.php");
-    // }
-
     if(isset($_POST['logout'])){
         session_unset();
         session_destroy();
@@ -12,15 +7,6 @@
     }
 
     include("header.php");
-    
-    // include("config.php");
-    // $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}' OR username = '{$_SESSION['user']}')";
-    // $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
-
-    // $user_info_data = mysqli_fetch_assoc($user_info);
-    // echo "<pre>";
-    // print_r($user_info_data);
-    // echo "</pre>";
 
 
     // fetching all menu items list 
@@ -61,23 +47,49 @@
 
 
         <!-- ========== filter section ========= -->
-        <section id = "filter-section">
-            <?php 
-                while($category = mysqli_fetch_assoc($category_list)){
-            ?>
-                <div class = "category">
+
+
+
+
+        <section id = "filter-sort-section">
+            <div class="title">
+                Filters
+            </div>
+            <div class="filters"></div>
+
+            <div class="buttons">
+                <div id = "sort-btn">
+                    <i class="uil uil-sort"></i>
                     <span>
-                        <i class="uil uil-pizza-slice"></i>
+                        Sorts
                     </span>
-                    <span class = "category-name"><?php echo $category['category']; ?></span>
                 </div>
-            <?php 
-                }
-            ?>
+                <div id = "filter-btn">
+                    <i class="uil uil-filter"></i>
+                    <span>
+                        Filters
+                    </span>
+                </div>
+            </div>
+
+        </section>
+        <section id = "filter-sort-section" class = "filter-list">
+                <div></div>
+                <div class = "sorting-lists">
+                    <?php 
+                        while($category = mysqli_fetch_assoc($category_list)){
+                    ?>
+                        <div class = "items">
+                            <?php echo $category['category']; ?>
+                        </div>
+                    <?php 
+                        }
+                    ?>
+                </div>
         </section>
 
 
-
+        <hr>
 
         <!-- ============ end filters ============= -->
 
@@ -129,11 +141,75 @@
         $(document).ready(function(){
 
 
+
+            $("#filter-sort-section.filter-list").hide();
+            
+            $("#filter-btn").on("click", function(){
+                $("#filter-sort-section.filter-list").toggle();
+            });
+
             // filter section for resulting....
             $(".category").on("click", function(){
                 var categoryItem = $(this).toggleClass("active");
+                // console.log(categoryValue);
+            });
 
-                console.log(categoryValue);
+
+            
+            function get_filtered_data(){
+                // $("#filter-lists").empty();
+                var valueObj = {};  
+                $("#filter-sort-section .sorting-lists .items.active").each(function (index, element) {
+                    var value = $(element).text();
+                    valueObj[value] = value; // Assuming you want to store the text content
+                    
+                    $("#filter-sort-section .filters").append(`
+                                            <div class="applied-filter">
+                                                <span>
+                                                    `+ value +`
+                                                </span>
+                                                <i id ="cancel-filter" class = "uil uil-times"></i>
+                                            </div> 
+                                            `);
+                });
+
+                $.ajax({
+                    url : "filterdata2.php",
+                    method : "POST",
+                    data : { data : JSON.stringify(valueObj)},
+                    success : function(data){
+                        if(data){
+                            $(".boxes").html(data);
+                        }else{
+                            alert("error");
+                        }
+                    }
+                });
+            }
+
+            // get_filtered_data();
+
+
+            $(document).on("click", "#filter-sort-section .sorting-lists .items", function(){
+                $(this).toggleClass("active");
+                var id = $(this).data("categoryitem");
+                
+                get_filtered_data();
+                
+            });
+
+            $(document).on("click","#cancel-filter", function(){
+                var filterValue = $(this).siblings(".applied-filter span").text();
+                $(this).parent().remove();
+                
+                // $(".filter-box .options .item").removeClass("active");
+                $(".filter-box .options .item.active").each(function (index, element) {
+                    if(filterValue.trim() == $(element).text()){
+                        var value = $(element).removeClass("active");
+                    }
+                });
+                get_filtered_data();
+
             });
         });
 

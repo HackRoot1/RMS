@@ -132,6 +132,11 @@
             <?php 
                         }
                     }
+                }else if(!isset($_GET['id'])){
+                    echo "<div class='cart-items'>
+                            Your Cart Is Empty...
+                            </div>";
+
                 }
             ?>
 
