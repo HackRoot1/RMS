@@ -139,3 +139,16 @@
     border: 1px solid rgb(14, 9, 64);
     cursor: pointer;
 }
+
+#add-menu .menu-table table tr td a{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(14, 9, 64);
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid rgb(14, 9, 64);
+    cursor: pointer;
+    margin-right: 10px;
+}

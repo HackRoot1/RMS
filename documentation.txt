@@ -87,3 +87,26 @@ The number and type of features required for a project can vary widely depending
     - Native mobile app features (if applicable)
 
 Remember, this is a general list, and the specific features needed for your project will depend on its unique requirements and goals. It's essential to conduct thorough requirements gathering and analysis to determine the specific features that will meet the needs of your project stakeholders.
+
+
+INSERT INTO `menu`(`name`, `description`, `category`, `price`, `quantity`, `image`) VALUES
+('Paneer Tikka', 'Grilled cottage cheese with Indian spices', 'Appetizer', 249.99, 10, 'paneer_tikka.jpg'),
+('Butter Chicken', 'Tender chicken in a creamy tomato-based sauce', 'Main Course', 349.99, 8, 'butter_chicken.jpg'),
+('Masala Dosa', 'South Indian rice crepe filled with spiced potatoes', 'Breakfast', 129.99, 6, 'masala_dosa.jpg'),
+('Chole Bhature', 'Fried bread with spicy chickpea curry', 'Main Course', 199.99, 12, 'chole_bhature.jpg'),
+('Rajma Chawal', 'Kidney beans curry with steamed rice', 'Main Course', 179.99, 15, 'rajma_chawal.jpg'),
+('Samosa Chaat', 'Crushed samosas topped with chutneys and yogurt', 'Appetizer', 99.99, 9, 'samosa_chaat.jpg'),
+('Hyderabadi Biryani', 'Fragrant basmati rice with marinated meat and spices', 'Main Course', 299.99, 7, 'hyderabadi_biryani.jpg'),
+('Pav Bhaji', 'Mixed vegetables in a spicy tomato-based curry served with bread', 'Street Food', 129.99, 20, 'pav_bhaji.jpg'),
+('Gulab Jamun', 'Deep-fried milk dumplings soaked in sugar syrup', 'Dessert', 79.99, 18, 'gulab_jamun.jpg'),
+('Palak Paneer', 'Cottage cheese in a spinach-based curry', 'Main Course', 219.99, 25, 'palak_paneer.jpg'),
+('Mango Lassi', 'Refreshing yogurt drink with mango flavor', 'Beverage', 49.99, 15, 'mango_lassi.jpg'),
+('Aloo Paratha', 'Stuffed Indian bread with spiced potatoes', 'Breakfast', 89.99, 10, 'aloo_paratha.jpg'),
+('Mutton Rogan Josh', 'Slow-cooked mutton in a rich and aromatic curry', 'Main Course', 399.99, 14, 'mutton_rogan_josh.jpg'),
+('Jalebi', 'Deep-fried sweet pretzels soaked in saffron-infused sugar syrup', 'Dessert', 59.99, 22, 'jalebi.jpg'),
+('Chicken Tikka Masala', 'Grilled chicken in a creamy and flavorful curry', 'Main Course', 329.99, 12, 'chicken_tikka_masala.jpg'),
+('Aloo Tikki', 'Fried potato patties served with chutneys', 'Appetizer', 79.99, 20, 'aloo_tikki.jpg'),
+('Rasgulla', 'Spongy cottage cheese balls in sugar syrup', 'Dessert', 69.99, 16, 'rasgulla.jpg'),
+('Dal Makhani', 'Creamy lentils cooked with butter and spices', 'Main Course', 249.99, 18, 'dal_makhani.jpg'),
+('Chicken Biryani', 'Fragrant basmati rice with marinated chicken and spices', 'Main Course', 359.99, 10, 'chicken_biryani.jpg'),
+('Kadai Paneer', 'Cottage cheese cooked with bell peppers and spices', 'Main Course', 289.99, 14, 'kadai_paneer.jpg');
