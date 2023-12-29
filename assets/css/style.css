@@ -115,6 +115,7 @@ body{
                 top: 0;
                 background-color: #b5b5b598;
                 backdrop-filter: blur(5px);
+                z-index: 20;
             }
 
             #main-container div.title{

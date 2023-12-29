@@ -55,9 +55,10 @@
             <div class="title">
                 Filters
             </div>
+            <div class="filters"></div>
 
             <div class="buttons">
-                <div>
+                <div id = "sort-btn">
                     <i class="uil uil-sort"></i>
                     <span>
                         Sorts
@@ -150,7 +151,6 @@
             // filter section for resulting....
             $(".category").on("click", function(){
                 var categoryItem = $(this).toggleClass("active");
-
                 // console.log(categoryValue);
             });
 
@@ -163,14 +163,14 @@
                     var value = $(element).text();
                     valueObj[value] = value; // Assuming you want to store the text content
                     
-                    // $("#filter-lists").append(`
-                    //                         <div class="applied-filter">
-                    //                             <span>
-                    //                                 `+ value +`
-                    //                             </span>
-                    //                             <i id ="cancel-filter" class = "uil uil-times"></i>
-                    //                         </div> 
-                    //                         `);
+                    $("#filter-sort-section .filters").append(`
+                                            <div class="applied-filter">
+                                                <span>
+                                                    `+ value +`
+                                                </span>
+                                                <i id ="cancel-filter" class = "uil uil-times"></i>
+                                            </div> 
+                                            `);
                 });
 
                 $.ajax({
@@ -180,7 +180,6 @@
                     success : function(data){
                         if(data){
                             $(".boxes").html(data);
-                            
                         }else{
                             alert("error");
                         }

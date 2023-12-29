@@ -11,22 +11,19 @@ include("config.php");
     
         if (is_array($filter_value) && count($filter_value) > 0) {
             
-            if(count($filter_value) < 2){
-                $filter_value = implode("", $filter_value);
-                $menu_items_query = "SELECT * FROM menu WHERE category = ('{$filter_value}')";
-            }else{
-                $filter_value = implode(", ", $filter_value);
-                $menu_items_query = "SELECT * FROM menu WHERE category IN ('" . $filter_value . "')";
-            }
+            $filter_value = " ' " . implode( "', '", $filter_value) . " ' ";
+            $menu_items_query = "SELECT * FROM `menu` WHERE `{$filter_category}` IN ({$filter_value})";   
             
         }
         
-        return mysqli_query($conn, $menu_items_query) or die(mysqli_error($conn));
+        return mysqli_query($conn, $menu_items_query);
     }
     
     $menu_items = select_menu_items($conn, 'category', $jsonData);
 
 
+    // print_r($menu_items);
+    // exit();
 ?>
 
 
