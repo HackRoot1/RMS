@@ -31,7 +31,7 @@
 
             <div class = "title">
                 <div>
-                    <a href=""> 
+                    <a href="./add_item.php"> 
                         <i class="uil uil-plus-circle"></i>
                         <span>
                             Add Menu
