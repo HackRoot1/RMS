@@ -9,6 +9,7 @@ $user_info_query = "SELECT * FROM users_data WHERE (email = '{$_SESSION['user']}
 $user_info = mysqli_query($conn, $user_info_query) or die("Query failed");
 
 $user_info_data = mysqli_fetch_assoc($user_info);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +22,12 @@ $user_info_data = mysqli_fetch_assoc($user_info);
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <!-- =========== css link ========== -->
+    <link rel="stylesheet" href="./assets/css/form.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/cart.css">
     <link rel="stylesheet" href="./assets/css/view_data.css">
     <link rel="stylesheet" href="./assets/css/menuedit.css">
+    <link rel="stylesheet" href="./assets/css/checkout.css">
 
 
     <!-- =========== google fonts ========== -->
@@ -65,8 +68,12 @@ $user_info_data = mysqli_fetch_assoc($user_info);
                     <span>Customer</span>
                 </a>
                 <a href="cart.php">
+                    <i class = "uil uil-shopping-cart-alt"></i>
+                    <span>Cart</span>
+                </a>
+                <a href="orders.php">
                     <i class = "uil uil-usd-square"></i>
-                    <span>Order</span>
+                    <span>Orders</span>
                 </a>
             </div>
         </div>
@@ -82,7 +89,7 @@ $user_info_data = mysqli_fetch_assoc($user_info);
                     </span>
                 </form>
             </a>
-            <a href="">
+            <a href="./settings.php">
                 <i class = "uil uil-setting"></i>
                 <span>Settings</span>
             </a>

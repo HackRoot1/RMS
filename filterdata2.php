@@ -11,10 +11,8 @@
         
         $filter_value = " ' " . implode( "', '", $filter_value) . " ' ";
         
-        $menu_items_query = "SELECT * FROM menu WHERE category IN ({$filter_value});";   
+        $menu_items_query = "SELECT * FROM menu WHERE category IN ({$filter_value})";   
 
-        echo $menu_items_query;
-        exit();
     }
     
     $menu_items =  mysqli_query($conn, $menu_items_query);

@@ -52,6 +52,7 @@
     padding: 10px;
     color: white;
     border-radius: 10px;
+    cursor: pointer;
   }
   
   #add-menu .menu .title .filters .filter-box{
@@ -92,6 +93,10 @@
     margin: 0;
     padding: 0;
     table-layout: fixed;
+  }
+
+  #cancel-filter{
+    cursor: pointer;
   }
 
 
@@ -151,4 +156,5 @@
     border: 1px solid rgb(14, 9, 64);
     cursor: pointer;
     margin-right: 10px;
+    text-decoration: none;
 }
